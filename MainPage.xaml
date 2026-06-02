@@ -52,10 +52,12 @@
 
             <Button
                 Text="Register"
+                Clicked="OnRegisterClicked"
                 Style="{StaticResource HomeButtonStyle}" />
 
             <Button
                 Text="Login"
+                Clicked="OnLoginClicked"
                 Style="{StaticResource HomeButtonStyle}" />
 
             <Button

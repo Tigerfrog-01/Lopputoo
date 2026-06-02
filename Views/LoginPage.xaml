@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lopputoo.Views.LoginPage"
+             Title="Login"
+             BackgroundColor="{AppThemeBinding Light=#F4FAF0, Dark=#142116}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FormEntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#6F8A72, Dark=#A9CFA6}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#203524}" />
+            </Style>
+
+            <Style x:Key="FormButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#3B8A58, Dark=#78B483}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=#102016}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="28" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="14"
+            HorizontalOptions="Fill">
+
+            <Label
+                Text="Login"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                HorizontalTextAlignment="Center" />
+
+            <Entry
+                x:Name="UsernameEntry"
+                Placeholder="Username"
+                Style="{StaticResource FormEntryStyle}" />
+
+            <Entry
+                x:Name="PasswordEntry"
+                Placeholder="Password"
+                IsPassword="True"
+                Style="{StaticResource FormEntryStyle}" />
+
+            <Label
+                x:Name="LoginMessageLabel"
+                TextColor="{AppThemeBinding Light=#5E7D61, Dark=#A9CFA6}"
+                FontSize="14"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                Text="Login"
+                Clicked="OnLoginClicked"
+                Style="{StaticResource FormButtonStyle}" />
+
+            <Button
+                Text="Back"
+                Clicked="OnBackClicked"
+                Style="{StaticResource FormButtonStyle}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
