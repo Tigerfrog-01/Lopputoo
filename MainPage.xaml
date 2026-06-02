@@ -20,12 +20,45 @@
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F2C94C, Dark=#D6B84A}" />
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=#24422B, Dark=#102016}" />
             </Style>
+
+            <Style x:Key="TopBarButtonStyle" TargetType="Button" BasedOn="{StaticResource HomeButtonStyle}">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="Padding" Value="12,0" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid Padding="28" RowDefinitions="*,Auto,*">
+    <Grid Padding="20,16,20,28" RowDefinitions="Auto,*,Auto,*">
+        <Grid
+            Grid.Row="0"
+            ColumnDefinitions="Auto,Auto,*"
+            ColumnSpacing="8"
+            VerticalOptions="Start">
+
+            <Button
+                Grid.Column="0"
+                Text="Register"
+                Clicked="OnRegisterClicked"
+                Style="{StaticResource TopBarButtonStyle}" />
+
+            <Button
+                Grid.Column="1"
+                Text="Login"
+                Clicked="OnLoginClicked"
+                Style="{StaticResource TopBarButtonStyle}" />
+
+            <Label
+                x:Name="CurrentUserLabel"
+                Grid.Column="2"
+                FontSize="14"
+                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End" />
+        </Grid>
+
         <VerticalStackLayout
-            Grid.Row="1"
+            Grid.Row="2"
             Spacing="18"
             HorizontalOptions="Fill">
 
@@ -49,16 +82,6 @@
                 HeightRequest="2"
                 WidthRequest="90"
                 HorizontalOptions="Center" />
-
-            <Button
-                Text="Register"
-                Clicked="OnRegisterClicked"
-                Style="{StaticResource HomeButtonStyle}" />
-
-            <Button
-                Text="Login"
-                Clicked="OnLoginClicked"
-                Style="{StaticResource HomeButtonStyle}" />
 
             <Button
                 Text="Settings"
