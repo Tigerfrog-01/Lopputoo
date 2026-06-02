@@ -1,34 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lopputoo.MainPage">
+             x:Class="Lopputoo.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F4FAF0">
 
-    <ScrollView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HomeButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#3B8A58" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="AccentHomeButtonStyle" TargetType="Button" BasedOn="{StaticResource HomeButtonStyle}">
+                <Setter Property="BackgroundColor" Value="#F2C94C" />
+                <Setter Property="TextColor" Value="#24422B" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="28" RowDefinitions="*,Auto,*">
         <VerticalStackLayout
-            Padding="30"
-            Spacing="12"
-            VerticalOptions="Center">
+            Grid.Row="1"
+            Spacing="18"
+            HorizontalOptions="Fill">
 
-            <Label
-                Text="Garden Defender Prototype"
+            <VerticalStackLayout Spacing="4">
+                <Label
+                    Text="Garden Defender"
+                    FontSize="34"
+                    FontAttributes="Bold"
+                    TextColor="#24422B"
+                    HorizontalTextAlignment="Center" />
+
+                <Label
+                    Text="Prototype"
+                    FontSize="18"
+                    TextColor="#5E7D61"
+                    HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <BoxView
+                Color="#F2C94C"
+                HeightRequest="2"
+                WidthRequest="90"
                 HorizontalOptions="Center" />
 
             <Button
                 Text="Register"
-                HorizontalOptions="Fill" />
+                Style="{StaticResource HomeButtonStyle}" />
 
             <Button
                 Text="Login"
-                HorizontalOptions="Fill" />
+                Style="{StaticResource HomeButtonStyle}" />
 
             <Button
                 Text="Settings"
-                HorizontalOptions="Fill" />
+                Style="{StaticResource AccentHomeButtonStyle}" />
 
             <Button
                 Text="Play"
-                HorizontalOptions="Fill" />
+                Style="{StaticResource HomeButtonStyle}" />
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 
 </ContentPage>
