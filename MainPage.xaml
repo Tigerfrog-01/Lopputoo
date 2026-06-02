@@ -54,7 +54,11 @@
                 FontSize="14"
                 TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
                 VerticalTextAlignment="Center"
-                HorizontalTextAlignment="End" />
+                HorizontalTextAlignment="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCurrentUserTapped" />
+                </Label.GestureRecognizers>
+            </Label>
         </Grid>
 
         <VerticalStackLayout
@@ -84,13 +88,13 @@
                 HorizontalOptions="Center" />
 
             <Button
+                Text="Play"
+                Style="{StaticResource HomeButtonStyle}" />
+
+            <Button
                 Text="Settings"
                 Clicked="OnSettingsClicked"
                 Style="{StaticResource AccentHomeButtonStyle}" />
-
-            <Button
-                Text="Play"
-                Style="{StaticResource HomeButtonStyle}" />
         </VerticalStackLayout>
     </Grid>
 

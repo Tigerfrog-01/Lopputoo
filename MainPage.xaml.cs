@@ -31,6 +31,27 @@ namespace Lopputoo
             await Shell.Current.GoToAsync(nameof(Views.SettingsPage));
         }
 
+        private async void OnCurrentUserTapped(object? sender, TappedEventArgs e)
+        {
+            var username = Preferences.Get(CurrentUsernamePreferenceKey, string.Empty);
+
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                await Shell.Current.GoToAsync(nameof(Views.LoginPage));
+                return;
+            }
+
+            var shouldLogOut = await DisplayAlert("Log out", $"Log out {username}?", "Log out", "Cancel");
+
+            if (!shouldLogOut)
+            {
+                return;
+            }
+
+            Preferences.Remove(CurrentUsernamePreferenceKey);
+            UpdateCurrentUserText();
+        }
+
         private void UpdateCurrentUserText()
         {
             var username = Preferences.Get(CurrentUsernamePreferenceKey, string.Empty);
