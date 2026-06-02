@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Lopputoo.Services;
 
 namespace Lopputoo
 {
@@ -7,6 +7,7 @@ namespace Lopputoo
         public App()
         {
             InitializeComponent();
+            ThemeService.ApplySavedTheme();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

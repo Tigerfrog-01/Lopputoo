@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lopputoo.Views.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{AppThemeBinding Light=#F4FAF0, Dark=#142116}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SettingsButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#3B8A58, Dark=#78B483}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=#102016}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="28" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="18"
+            HorizontalOptions="Fill">
+
+            <Label
+                Text="Settings"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                x:Name="CurrentThemeLabel"
+                TextColor="{AppThemeBinding Light=#5E7D61, Dark=#A9CFA6}"
+                FontSize="16"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                Text="Light Mode"
+                Clicked="OnLightModeClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+
+            <Button
+                Text="Dark Mode"
+                Clicked="OnDarkModeClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+
+            <Button
+                Text="Back"
+                Clicked="OnBackClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

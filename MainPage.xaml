@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lopputoo.MainPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#F4FAF0">
+             BackgroundColor="{AppThemeBinding Light=#F4FAF0, Dark=#142116}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HomeButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#3B8A58" />
-                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#3B8A58, Dark=#78B483}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=#102016}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HeightRequest" Value="50" />
@@ -17,8 +17,8 @@
             </Style>
 
             <Style x:Key="AccentHomeButtonStyle" TargetType="Button" BasedOn="{StaticResource HomeButtonStyle}">
-                <Setter Property="BackgroundColor" Value="#F2C94C" />
-                <Setter Property="TextColor" Value="#24422B" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F2C94C, Dark=#D6B84A}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#24422B, Dark=#102016}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -34,18 +34,18 @@
                     Text="Garden Defender"
                     FontSize="34"
                     FontAttributes="Bold"
-                    TextColor="#24422B"
+                    TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
                     HorizontalTextAlignment="Center" />
 
                 <Label
                     Text="Prototype"
                     FontSize="18"
-                    TextColor="#5E7D61"
+                    TextColor="{AppThemeBinding Light=#5E7D61, Dark=#A9CFA6}"
                     HorizontalTextAlignment="Center" />
             </VerticalStackLayout>
 
             <BoxView
-                Color="#F2C94C"
+                Color="{AppThemeBinding Light=#F2C94C, Dark=#D6B84A}"
                 HeightRequest="2"
                 WidthRequest="90"
                 HorizontalOptions="Center" />
@@ -60,6 +60,7 @@
 
             <Button
                 Text="Settings"
+                Clicked="OnSettingsClicked"
                 Style="{StaticResource AccentHomeButtonStyle}" />
 
             <Button
