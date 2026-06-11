@@ -17,7 +17,9 @@ namespace Lopputoo.Views
         private readonly Dictionary<int, double> cactusHealthByLane = new();
         private bool isFishFingerMoving;
         private bool isFishFingerActive;
+        private bool isGameOver;
         private double fishFingerHealth;
+        private double baseHealth = MaxHealth;
 
         public GamePage()
         {
@@ -27,6 +29,12 @@ namespace Lopputoo.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            if (isGameOver)
+            {
+                return;
+            }
+
             isFishFingerMoving = true;
             _ = MoveFishFingerAsync();
         }
@@ -45,6 +53,11 @@ namespace Lopputoo.Views
 
         private void OnPlantSquareDrop(object? sender, DropEventArgs e)
         {
+            if (isGameOver)
+            {
+                return;
+            }
+
             if (!e.Data.Properties.ContainsKey("Plant"))
             {
                 return;
@@ -93,6 +106,11 @@ namespace Lopputoo.Views
 
         private async Task ShootBallAsync(AbsoluteLayout shotArea)
         {
+            if (isGameOver)
+            {
+                return;
+            }
+
             if (shotArea.Width <= 0)
             {
                 return;
@@ -115,7 +133,7 @@ namespace Lopputoo.Views
             var targetX = Math.Max(0, shotArea.Width - BallSize);
             var ballX = 0d;
 
-            while (ballX < targetX && ball.Parent is not null)
+            while (!isGameOver && ballX < targetX && ball.Parent is not null)
             {
                 ballX = Math.Min(targetX, ballX + BallSpeed);
                 ball.TranslationX = ballX;
@@ -134,7 +152,7 @@ namespace Lopputoo.Views
 
         private async Task MoveFishFingerAsync()
         {
-            while (isFishFingerMoving)
+            while (isFishFingerMoving && !isGameOver)
             {
                 if (Lane1ShotArea.Width <= 0)
                 {
@@ -148,13 +166,14 @@ namespace Lopputoo.Views
                 FishFingerEnemy.IsVisible = true;
                 isFishFingerActive = true;
 
-                while (isFishFingerMoving && isFishFingerActive)
+                while (isFishFingerMoving && isFishFingerActive && !isGameOver)
                 {
                     FishFingerEnemy.TranslationX -= FishSpeed;
 
                     if (GetFishFingerLeft() <= 0)
                     {
                         DamageCactus(1, FishDamage);
+                        DamageBase(FishDamage);
                         isFishFingerActive = false;
                     }
 
@@ -189,7 +208,7 @@ namespace Lopputoo.Views
 
         private void DamageFishFinger(double damage)
         {
-            if (!isFishFingerActive)
+            if (isGameOver || !isFishFingerActive)
             {
                 return;
             }
@@ -208,6 +227,11 @@ namespace Lopputoo.Views
 
         private void DamageCactus(int laneNumber, double damage)
         {
+            if (isGameOver)
+            {
+                return;
+            }
+
             if (!cactusHealthByLane.TryGetValue(laneNumber, out var cactusHealth) || cactusHealth <= 0)
             {
                 return;
@@ -267,6 +291,40 @@ namespace Lopputoo.Views
                 CactusHealthBar3.IsVisible = false;
                 PlacedCactusImage3.IsVisible = false;
             }
+        }
+
+        private void DamageBase(double damage)
+        {
+            if (isGameOver)
+            {
+                return;
+            }
+
+            baseHealth = Math.Max(0, baseHealth - damage);
+            BaseHealthBar.Progress = baseHealth / MaxHealth;
+
+            if (baseHealth > 0)
+            {
+                return;
+            }
+
+            EndGame();
+        }
+
+        private void EndGame()
+        {
+            isGameOver = true;
+            isFishFingerMoving = false;
+            isFishFingerActive = false;
+            FishFingerEnemy.IsVisible = false;
+            GameOverLabel.IsVisible = true;
+
+            foreach (var timer in shootingTimers.Values)
+            {
+                timer.Stop();
+            }
+
+            shootingTimers.Clear();
         }
 
         private async void OnBackClicked(object? sender, EventArgs e)

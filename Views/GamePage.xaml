@@ -59,6 +59,34 @@
                     TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
                     VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
+
+            <Grid
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="10"
+                HorizontalOptions="Fill">
+                <Label
+                    Grid.Column="0"
+                    Text="Base health"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                    VerticalTextAlignment="Center" />
+                <ProgressBar
+                    x:Name="BaseHealthBar"
+                    Grid.Column="1"
+                    Progress="1"
+                    ProgressColor="#3B8A58"
+                    BackgroundColor="#8FBF8F"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <Label
+                x:Name="GameOverLabel"
+                Text="Game over"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#C0392B"
+                HorizontalTextAlignment="Center"
+                IsVisible="False" />
         </VerticalStackLayout>
 
         <Grid
