@@ -118,6 +118,14 @@
                             Style="{StaticResource LaneLabelStyle}"
                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
                             AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        <Image
+                            x:Name="FishFingerImage"
+                            Source="fishfinger.png"
+                            WidthRequest="80"
+                            HeightRequest="52"
+                            Aspect="AspectFit"
+                            AbsoluteLayout.LayoutBounds="1,0.5,80,52"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
                     </AbsoluteLayout>
                 </Grid>
             </Border>

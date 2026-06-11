@@ -6,10 +6,24 @@ namespace Lopputoo.Views
     public partial class GamePage : ContentPage
     {
         private readonly Dictionary<int, IDispatcherTimer> shootingTimers = new();
+        private bool isFishFingerMoving;
 
         public GamePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            isFishFingerMoving = true;
+            _ = MoveFishFingerAsync();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            isFishFingerMoving = false;
         }
 
         private void OnCactusDragStarting(object? sender, DragStartingEventArgs e)
@@ -81,6 +95,28 @@ namespace Lopputoo.Views
             await ball.TranslateTo(Math.Max(0, shotArea.Width - 18), 0, 900, Easing.Linear);
 
             shotArea.Children.Remove(ball);
+        }
+
+        private async Task MoveFishFingerAsync()
+        {
+            while (isFishFingerMoving)
+            {
+                if (Lane1ShotArea.Width <= 0)
+                {
+                    await Task.Delay(100);
+                    continue;
+                }
+
+                FishFingerImage.TranslationX = 0;
+                FishFingerImage.IsVisible = true;
+
+                await FishFingerImage.TranslateTo(-Lane1ShotArea.Width, 0, 4500, Easing.Linear);
+
+                FishFingerImage.IsVisible = false;
+                FishFingerImage.TranslationX = 0;
+
+                await Task.Delay(800);
+            }
         }
 
         private async void OnBackClicked(object? sender, EventArgs e)
