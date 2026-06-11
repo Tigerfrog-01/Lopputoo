@@ -76,7 +76,7 @@
                 </Border.StrokeShape>
                 <Grid ColumnDefinitions="Auto,*" Padding="12">
                     <Border
-                        x:Name="PlantSquare"
+                        x:Name="PlantSquare1"
                         Grid.Column="0"
                         WidthRequest="86"
                         HeightRequest="86"
@@ -94,14 +94,14 @@
                         </Border.GestureRecognizers>
                         <Grid>
                             <Label
-                                x:Name="PlantSquareLabel"
+                                x:Name="PlantSquareLabel1"
                                 Text="Drop"
                                 FontSize="14"
                                 TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Center" />
                             <Image
-                                x:Name="PlacedCactusImage"
+                                x:Name="PlacedCactusImage1"
                                 Source="cactus.png"
                                 WidthRequest="70"
                                 HeightRequest="70"
@@ -110,10 +110,15 @@
                         </Grid>
                     </Border>
 
-                    <Label
-                        Grid.Column="1"
-                        Text="Lane 1"
-                        Style="{StaticResource LaneLabelStyle}" />
+                    <AbsoluteLayout
+                        x:Name="Lane1ShotArea"
+                        Grid.Column="1">
+                        <Label
+                            Text="Lane 1"
+                            Style="{StaticResource LaneLabelStyle}"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    </AbsoluteLayout>
                 </Grid>
             </Border>
 
@@ -125,9 +130,52 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />
                 </Border.StrokeShape>
-                <Label
-                    Text="Lane 2"
-                    Style="{StaticResource LaneLabelStyle}" />
+                <Grid ColumnDefinitions="Auto,*" Padding="12">
+                    <Border
+                        x:Name="PlantSquare2"
+                        Grid.Column="0"
+                        WidthRequest="86"
+                        HeightRequest="86"
+                        BackgroundColor="{AppThemeBinding Light=#EEF7E7, Dark=#142116}"
+                        Stroke="{AppThemeBinding Light=#3B8A58, Dark=#78B483}"
+                        StrokeThickness="2"
+                        VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <DropGestureRecognizer
+                                AllowDrop="True"
+                                Drop="OnPlantSquareDrop" />
+                        </Border.GestureRecognizers>
+                        <Grid>
+                            <Label
+                                x:Name="PlantSquareLabel2"
+                                Text="Drop"
+                                FontSize="14"
+                                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center" />
+                            <Image
+                                x:Name="PlacedCactusImage2"
+                                Source="cactus.png"
+                                WidthRequest="70"
+                                HeightRequest="70"
+                                Aspect="AspectFit"
+                                IsVisible="False" />
+                        </Grid>
+                    </Border>
+
+                    <AbsoluteLayout
+                        x:Name="Lane2ShotArea"
+                        Grid.Column="1">
+                        <Label
+                            Text="Lane 2"
+                            Style="{StaticResource LaneLabelStyle}"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    </AbsoluteLayout>
+                </Grid>
             </Border>
 
             <Border
@@ -138,9 +186,52 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />
                 </Border.StrokeShape>
-                <Label
-                    Text="Lane 3"
-                    Style="{StaticResource LaneLabelStyle}" />
+                <Grid ColumnDefinitions="Auto,*" Padding="12">
+                    <Border
+                        x:Name="PlantSquare3"
+                        Grid.Column="0"
+                        WidthRequest="86"
+                        HeightRequest="86"
+                        BackgroundColor="{AppThemeBinding Light=#EEF7E7, Dark=#142116}"
+                        Stroke="{AppThemeBinding Light=#3B8A58, Dark=#78B483}"
+                        StrokeThickness="2"
+                        VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <DropGestureRecognizer
+                                AllowDrop="True"
+                                Drop="OnPlantSquareDrop" />
+                        </Border.GestureRecognizers>
+                        <Grid>
+                            <Label
+                                x:Name="PlantSquareLabel3"
+                                Text="Drop"
+                                FontSize="14"
+                                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center" />
+                            <Image
+                                x:Name="PlacedCactusImage3"
+                                Source="cactus.png"
+                                WidthRequest="70"
+                                HeightRequest="70"
+                                Aspect="AspectFit"
+                                IsVisible="False" />
+                        </Grid>
+                    </Border>
+
+                    <AbsoluteLayout
+                        x:Name="Lane3ShotArea"
+                        Grid.Column="1">
+                        <Label
+                            Text="Lane 3"
+                            Style="{StaticResource LaneLabelStyle}"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                            AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    </AbsoluteLayout>
+                </Grid>
             </Border>
         </Grid>
 
