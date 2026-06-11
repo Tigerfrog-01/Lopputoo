@@ -40,21 +40,23 @@ namespace Lopputoo.Views
 
             if (sender == PlantSquare1)
             {
-                PlaceCactus(1, PlantSquareLabel1, PlacedCactusImage1, Lane1ShotArea);
+                PlaceCactus(1, PlantSquareLabel1, CactusHealthBar1, PlacedCactusImage1, Lane1ShotArea);
             }
             else if (sender == PlantSquare2)
             {
-                PlaceCactus(2, PlantSquareLabel2, PlacedCactusImage2, Lane2ShotArea);
+                PlaceCactus(2, PlantSquareLabel2, CactusHealthBar2, PlacedCactusImage2, Lane2ShotArea);
             }
             else if (sender == PlantSquare3)
             {
-                PlaceCactus(3, PlantSquareLabel3, PlacedCactusImage3, Lane3ShotArea);
+                PlaceCactus(3, PlantSquareLabel3, CactusHealthBar3, PlacedCactusImage3, Lane3ShotArea);
             }
         }
 
-        private void PlaceCactus(int laneNumber, Label squareLabel, Image cactusImage, AbsoluteLayout shotArea)
+        private void PlaceCactus(int laneNumber, Label squareLabel, ProgressBar healthBar, Image cactusImage, AbsoluteLayout shotArea)
         {
             squareLabel.IsVisible = false;
+            healthBar.IsVisible = true;
+            healthBar.Progress = 1;
             cactusImage.IsVisible = true;
 
             if (shootingTimers.ContainsKey(laneNumber))
@@ -107,13 +109,14 @@ namespace Lopputoo.Views
                     continue;
                 }
 
-                FishFingerImage.TranslationX = 0;
-                FishFingerImage.IsVisible = true;
+                FishFingerHealthBar.Progress = 1;
+                FishFingerEnemy.TranslationX = 0;
+                FishFingerEnemy.IsVisible = true;
 
-                await FishFingerImage.TranslateTo(-Lane1ShotArea.Width, 0, 4500, Easing.Linear);
+                await FishFingerEnemy.TranslateTo(-Lane1ShotArea.Width, 0, 4500, Easing.Linear);
 
-                FishFingerImage.IsVisible = false;
-                FishFingerImage.TranslationX = 0;
+                FishFingerEnemy.IsVisible = false;
+                FishFingerEnemy.TranslationX = 0;
 
                 await Task.Delay(800);
             }
