@@ -89,6 +89,7 @@
 
             <Button
                 Text="Play"
+                Clicked="OnPlayClicked"
                 Style="{StaticResource HomeButtonStyle}" />
 
             <Button

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lopputoo.Views.GamePage"
+             Title="Play"
+             BackgroundColor="{AppThemeBinding Light=#F4FAF0, Dark=#142116}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LaneLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="GameButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#3B8A58, Dark=#78B483}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=#102016}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto" RowSpacing="16">
+        <Label
+            Grid.Row="0"
+            Text="Game"
+            FontSize="30"
+            FontAttributes="Bold"
+            TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+            HorizontalTextAlignment="Center" />
+
+        <Grid
+            Grid.Row="1"
+            RowDefinitions="*,*,*"
+            RowSpacing="12">
+
+            <Border
+                Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Light=#DDEECF, Dark=#203524}"
+                Stroke="{AppThemeBinding Light=#88A978, Dark=#78B483}"
+                StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <Label
+                    Text="Lane 1"
+                    Style="{StaticResource LaneLabelStyle}" />
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                BackgroundColor="{AppThemeBinding Light=#DDEECF, Dark=#203524}"
+                Stroke="{AppThemeBinding Light=#88A978, Dark=#78B483}"
+                StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <Label
+                    Text="Lane 2"
+                    Style="{StaticResource LaneLabelStyle}" />
+            </Border>
+
+            <Border
+                Grid.Row="2"
+                BackgroundColor="{AppThemeBinding Light=#DDEECF, Dark=#203524}"
+                Stroke="{AppThemeBinding Light=#88A978, Dark=#78B483}"
+                StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <Label
+                    Text="Lane 3"
+                    Style="{StaticResource LaneLabelStyle}" />
+            </Border>
+        </Grid>
+
+        <Button
+            Grid.Row="2"
+            Text="Back"
+            Clicked="OnBackClicked"
+            Style="{StaticResource GameButtonStyle}" />
+    </Grid>
+</ContentPage>

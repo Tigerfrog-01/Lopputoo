@@ -26,6 +26,11 @@ namespace Lopputoo
             await Shell.Current.GoToAsync(nameof(Views.LoginPage));
         }
 
+        private async void OnPlayClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(Views.GamePage));
+        }
+
         private async void OnSettingsClicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(Views.SettingsPage));
