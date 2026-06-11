@@ -27,13 +27,39 @@
     </ContentPage.Resources>
 
     <Grid Padding="20" RowDefinitions="Auto,*,Auto" RowSpacing="16">
-        <Label
+        <VerticalStackLayout
             Grid.Row="0"
-            Text="Game"
-            FontSize="30"
-            FontAttributes="Bold"
-            TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
-            HorizontalTextAlignment="Center" />
+            Spacing="8">
+            <Label
+                Text="Game"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                HorizontalTextAlignment="Center" />
+
+            <HorizontalStackLayout
+                Spacing="10"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image
+                    Source="cactus.png"
+                    WidthRequest="64"
+                    HeightRequest="64"
+                    Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer
+                            CanDrag="True"
+                            DragStarting="OnCactusDragStarting" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                    Text="Drag cactus"
+                    FontSize="16"
+                    TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
 
         <Grid
             Grid.Row="1"
@@ -48,9 +74,47 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />
                 </Border.StrokeShape>
-                <Label
-                    Text="Lane 1"
-                    Style="{StaticResource LaneLabelStyle}" />
+                <Grid ColumnDefinitions="Auto,*" Padding="12">
+                    <Border
+                        x:Name="PlantSquare"
+                        Grid.Column="0"
+                        WidthRequest="86"
+                        HeightRequest="86"
+                        BackgroundColor="{AppThemeBinding Light=#EEF7E7, Dark=#142116}"
+                        Stroke="{AppThemeBinding Light=#3B8A58, Dark=#78B483}"
+                        StrokeThickness="2"
+                        VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <DropGestureRecognizer
+                                AllowDrop="True"
+                                Drop="OnPlantSquareDrop" />
+                        </Border.GestureRecognizers>
+                        <Grid>
+                            <Label
+                                x:Name="PlantSquareLabel"
+                                Text="Drop"
+                                FontSize="14"
+                                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center" />
+                            <Image
+                                x:Name="PlacedCactusImage"
+                                Source="cactus.png"
+                                WidthRequest="70"
+                                HeightRequest="70"
+                                Aspect="AspectFit"
+                                IsVisible="False" />
+                        </Grid>
+                    </Border>
+
+                    <Label
+                        Grid.Column="1"
+                        Text="Lane 1"
+                        Style="{StaticResource LaneLabelStyle}" />
+                </Grid>
             </Border>
 
             <Border
