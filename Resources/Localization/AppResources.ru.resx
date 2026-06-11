@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AccountCreated" xml:space="preserve"><value>Аккаунт создан Теперь можно войти</value></data>
+  <data name="Back" xml:space="preserve"><value>Назад</value></data>
+  <data name="BaseHealth" xml:space="preserve"><value>Здоровье базы</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="ConfirmPassword" xml:space="preserve"><value>Подтверди пароль</value></data>
+  <data name="CreateAccount" xml:space="preserve"><value>Создать аккаунт</value></data>
+  <data name="CurrentLanguageFormat" xml:space="preserve"><value>Текущий язык: {0}</value></data>
+  <data name="CurrentThemeFormat" xml:space="preserve"><value>Текущая тема: {0}</value></data>
+  <data name="DarkMode" xml:space="preserve"><value>Тёмный режим</value></data>
+  <data name="DragCactus" xml:space="preserve"><value>Перетащи кактус</value></data>
+  <data name="Drop" xml:space="preserve"><value>Поставь</value></data>
+  <data name="English" xml:space="preserve"><value>Английский</value></data>
+  <data name="EnterUsernamePassword" xml:space="preserve"><value>Введи имя пользователя и пароль</value></data>
+  <data name="Estonian" xml:space="preserve"><value>Эстонский</value></data>
+  <data name="Game" xml:space="preserve"><value>Игра</value></data>
+  <data name="GameOver" xml:space="preserve"><value>Игра окончена</value></data>
+  <data name="GardenDefender" xml:space="preserve"><value>Защитник сада</value></data>
+  <data name="Language" xml:space="preserve"><value>Язык</value></data>
+  <data name="Lane1" xml:space="preserve"><value>Линия 1</value></data>
+  <data name="Lane2" xml:space="preserve"><value>Линия 2</value></data>
+  <data name="Lane3" xml:space="preserve"><value>Линия 3</value></data>
+  <data name="LightMode" xml:space="preserve"><value>Светлый режим</value></data>
+  <data name="Login" xml:space="preserve"><value>Войти</value></data>
+  <data name="LogOut" xml:space="preserve"><value>Выйти</value></data>
+  <data name="LogOutMessageFormat" xml:space="preserve"><value>Выйти {0}</value></data>
+  <data name="LogOutTitle" xml:space="preserve"><value>Выйти</value></data>
+  <data name="NotLoggedIn" xml:space="preserve"><value>Не выполнен вход</value></data>
+  <data name="Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Password" xml:space="preserve"><value>Пароль</value></data>
+  <data name="PasswordRequired" xml:space="preserve"><value>Пароль обязателен</value></data>
+  <data name="PasswordTooShort" xml:space="preserve"><value>Пароль должен быть не короче 4 символов</value></data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve"><value>Пароли не совпадают</value></data>
+  <data name="Play" xml:space="preserve"><value>Играть</value></data>
+  <data name="Prototype" xml:space="preserve"><value>Прототип</value></data>
+  <data name="Register" xml:space="preserve"><value>Регистрация</value></data>
+  <data name="Russian" xml:space="preserve"><value>Русский</value></data>
+  <data name="Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="ThatUsernameExists" xml:space="preserve"><value>Такое имя пользователя уже есть</value></data>
+  <data name="UserFormat" xml:space="preserve"><value>Пользователь: {0}</value></data>
+  <data name="UserNotFound" xml:space="preserve"><value>Пользователь не найден</value></data>
+  <data name="Username" xml:space="preserve"><value>Имя пользователя</value></data>
+  <data name="UsernameRequired" xml:space="preserve"><value>Имя пользователя обязательно</value></data>
+  <data name="WelcomeFormat" xml:space="preserve"><value>Добро пожаловать, {0}</value></data>
+  <data name="WrongPassword" xml:space="preserve"><value>Неверный пароль</value></data>
+</root>

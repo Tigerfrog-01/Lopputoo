@@ -25,6 +25,7 @@
             HorizontalOptions="Fill">
 
             <Label
+                x:Name="SettingsTitleLabel"
                 Text="Settings"
                 FontSize="30"
                 FontAttributes="Bold"
@@ -38,16 +39,51 @@
                 HorizontalTextAlignment="Center" />
 
             <Button
+                x:Name="LightModeButton"
                 Text="Light Mode"
                 Clicked="OnLightModeClicked"
                 Style="{StaticResource SettingsButtonStyle}" />
 
             <Button
+                x:Name="DarkModeButton"
                 Text="Dark Mode"
                 Clicked="OnDarkModeClicked"
                 Style="{StaticResource SettingsButtonStyle}" />
 
+            <Label
+                x:Name="LanguageTitleLabel"
+                Text="Language"
+                TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                x:Name="CurrentLanguageLabel"
+                TextColor="{AppThemeBinding Light=#5E7D61, Dark=#A9CFA6}"
+                FontSize="16"
+                HorizontalTextAlignment="Center" />
+
             <Button
+                x:Name="EnglishButton"
+                Text="English"
+                Clicked="OnEnglishClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+
+            <Button
+                x:Name="EstonianButton"
+                Text="Estonian"
+                Clicked="OnEstonianClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+
+            <Button
+                x:Name="RussianButton"
+                Text="Russian"
+                Clicked="OnRussianClicked"
+                Style="{StaticResource SettingsButtonStyle}" />
+
+            <Button
+                x:Name="BackButton"
                 Text="Back"
                 Clicked="OnBackClicked"
                 Style="{StaticResource SettingsButtonStyle}" />

@@ -30,22 +30,22 @@ namespace Lopputoo.Services
 
             if (string.IsNullOrWhiteSpace(cleanUsername))
             {
-                return (false, "Username is required.");
+                return (false, LocalizationService.Get("UsernameRequired"));
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                return (false, "Password is required.");
+                return (false, LocalizationService.Get("PasswordRequired"));
             }
 
             if (password.Length < 4)
             {
-                return (false, "Password must be at least 4 characters.");
+                return (false, LocalizationService.Get("PasswordTooShort"));
             }
 
             if (password != confirmPassword)
             {
-                return (false, "Passwords do not match.");
+                return (false, LocalizationService.Get("PasswordsDoNotMatch"));
             }
 
             var databaseConnection = await GetDatabaseAsync();
@@ -55,7 +55,7 @@ namespace Lopputoo.Services
 
             if (existingUser is not null)
             {
-                return (false, "That username already exists.");
+                return (false, LocalizationService.Get("ThatUsernameExists"));
             }
 
             var salt = CreateSalt();
@@ -68,7 +68,7 @@ namespace Lopputoo.Services
             };
 
             await databaseConnection.InsertAsync(userAccount);
-            return (true, "Account created. You can log in now.");
+            return (true, LocalizationService.Get("AccountCreated"));
         }
 
         public async Task<(bool Success, string Message, UserAccount? User)> LoginAsync(string username, string password)
@@ -77,7 +77,7 @@ namespace Lopputoo.Services
 
             if (string.IsNullOrWhiteSpace(cleanUsername) || string.IsNullOrWhiteSpace(password))
             {
-                return (false, "Enter username and password.", null);
+                return (false, LocalizationService.Get("EnterUsernamePassword"), null);
             }
 
             var databaseConnection = await GetDatabaseAsync();
@@ -87,16 +87,16 @@ namespace Lopputoo.Services
 
             if (userAccount is null)
             {
-                return (false, "User not found.", null);
+                return (false, LocalizationService.Get("UserNotFound"), null);
             }
 
             var enteredPasswordHash = CreatePasswordHash(password, userAccount.PasswordSalt);
             if (enteredPasswordHash != userAccount.PasswordHash)
             {
-                return (false, "Wrong password.", null);
+                return (false, LocalizationService.Get("WrongPassword"), null);
             }
 
-            return (true, $"Welcome, {userAccount.Username}!", userAccount);
+            return (true, LocalizationService.Format("WelcomeFormat", userAccount.Username), userAccount);
         }
 
         private static string CreateSalt()

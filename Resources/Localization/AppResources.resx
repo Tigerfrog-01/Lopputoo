@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AccountCreated" xml:space="preserve"><value>Account created You can log in now</value></data>
+  <data name="Back" xml:space="preserve"><value>Back</value></data>
+  <data name="BaseHealth" xml:space="preserve"><value>Base health</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="ConfirmPassword" xml:space="preserve"><value>Confirm password</value></data>
+  <data name="CreateAccount" xml:space="preserve"><value>Create account</value></data>
+  <data name="CurrentLanguageFormat" xml:space="preserve"><value>Current language: {0}</value></data>
+  <data name="CurrentThemeFormat" xml:space="preserve"><value>Current theme: {0}</value></data>
+  <data name="DarkMode" xml:space="preserve"><value>Dark mode</value></data>
+  <data name="DragCactus" xml:space="preserve"><value>Drag cactus</value></data>
+  <data name="Drop" xml:space="preserve"><value>Drop</value></data>
+  <data name="English" xml:space="preserve"><value>English</value></data>
+  <data name="EnterUsernamePassword" xml:space="preserve"><value>Enter username and password</value></data>
+  <data name="Estonian" xml:space="preserve"><value>Estonian</value></data>
+  <data name="Game" xml:space="preserve"><value>Game</value></data>
+  <data name="GameOver" xml:space="preserve"><value>Game over</value></data>
+  <data name="GardenDefender" xml:space="preserve"><value>Garden Defender</value></data>
+  <data name="Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Lane1" xml:space="preserve"><value>Lane 1</value></data>
+  <data name="Lane2" xml:space="preserve"><value>Lane 2</value></data>
+  <data name="Lane3" xml:space="preserve"><value>Lane 3</value></data>
+  <data name="LightMode" xml:space="preserve"><value>Light mode</value></data>
+  <data name="Login" xml:space="preserve"><value>Login</value></data>
+  <data name="LogOut" xml:space="preserve"><value>Log out</value></data>
+  <data name="LogOutMessageFormat" xml:space="preserve"><value>Log out {0}</value></data>
+  <data name="LogOutTitle" xml:space="preserve"><value>Log out</value></data>
+  <data name="NotLoggedIn" xml:space="preserve"><value>Not logged in</value></data>
+  <data name="Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Password" xml:space="preserve"><value>Password</value></data>
+  <data name="PasswordRequired" xml:space="preserve"><value>Password is required</value></data>
+  <data name="PasswordTooShort" xml:space="preserve"><value>Password must be at least 4 characters</value></data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve"><value>Passwords do not match</value></data>
+  <data name="Play" xml:space="preserve"><value>Play</value></data>
+  <data name="Prototype" xml:space="preserve"><value>Prototype</value></data>
+  <data name="Register" xml:space="preserve"><value>Register</value></data>
+  <data name="Russian" xml:space="preserve"><value>Russian</value></data>
+  <data name="Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="ThatUsernameExists" xml:space="preserve"><value>That username already exists</value></data>
+  <data name="UserFormat" xml:space="preserve"><value>User: {0}</value></data>
+  <data name="UserNotFound" xml:space="preserve"><value>User not found</value></data>
+  <data name="Username" xml:space="preserve"><value>Username</value></data>
+  <data name="UsernameRequired" xml:space="preserve"><value>Username is required</value></data>
+  <data name="WelcomeFormat" xml:space="preserve"><value>Welcome, {0}</value></data>
+  <data name="WrongPassword" xml:space="preserve"><value>Wrong password</value></data>
+</root>

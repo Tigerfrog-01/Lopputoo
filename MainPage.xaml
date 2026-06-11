@@ -37,12 +37,14 @@
             VerticalOptions="Start">
 
             <Button
+                x:Name="RegisterButton"
                 Grid.Column="0"
                 Text="Register"
                 Clicked="OnRegisterClicked"
                 Style="{StaticResource TopBarButtonStyle}" />
 
             <Button
+                x:Name="LoginButton"
                 Grid.Column="1"
                 Text="Login"
                 Clicked="OnLoginClicked"
@@ -68,6 +70,7 @@
 
             <VerticalStackLayout Spacing="4">
                 <Label
+                    x:Name="GardenDefenderLabel"
                     Text="Garden Defender"
                     FontSize="34"
                     FontAttributes="Bold"
@@ -75,6 +78,7 @@
                     HorizontalTextAlignment="Center" />
 
                 <Label
+                    x:Name="PrototypeLabel"
                     Text="Prototype"
                     FontSize="18"
                     TextColor="{AppThemeBinding Light=#5E7D61, Dark=#A9CFA6}"
@@ -88,11 +92,13 @@
                 HorizontalOptions="Center" />
 
             <Button
+                x:Name="PlayButton"
                 Text="Play"
                 Clicked="OnPlayClicked"
                 Style="{StaticResource HomeButtonStyle}" />
 
             <Button
+                x:Name="SettingsButton"
                 Text="Settings"
                 Clicked="OnSettingsClicked"
                 Style="{StaticResource AccentHomeButtonStyle}" />

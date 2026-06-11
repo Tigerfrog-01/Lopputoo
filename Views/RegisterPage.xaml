@@ -31,6 +31,7 @@
             HorizontalOptions="Fill">
 
             <Label
+                x:Name="RegisterTitleLabel"
                 Text="Register"
                 FontSize="30"
                 FontAttributes="Bold"
@@ -61,11 +62,13 @@
                 HorizontalTextAlignment="Center" />
 
             <Button
+                x:Name="CreateAccountButton"
                 Text="Create Account"
                 Clicked="OnRegisterClicked"
                 Style="{StaticResource FormButtonStyle}" />
 
             <Button
+                x:Name="BackButton"
                 Text="Back"
                 Clicked="OnBackClicked"
                 Style="{StaticResource FormButtonStyle}" />

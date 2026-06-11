@@ -1,3 +1,5 @@
+using Lopputoo.Services;
+
 namespace Lopputoo
 {
     public partial class MainPage : ContentPage
@@ -7,12 +9,15 @@ namespace Lopputoo
         public MainPage()
         {
             InitializeComponent();
+            LocalizationService.LanguageChanged += OnLanguageChanged;
+            ApplyLocalization();
             UpdateCurrentUserText();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            ApplyLocalization();
             UpdateCurrentUserText();
         }
 
@@ -46,7 +51,11 @@ namespace Lopputoo
                 return;
             }
 
-            var shouldLogOut = await DisplayAlert("Log out", $"Log out {username}?", "Log out", "Cancel");
+            var shouldLogOut = await DisplayAlert(
+                LocalizationService.Get("LogOutTitle"),
+                LocalizationService.Format("LogOutMessageFormat", username),
+                LocalizationService.Get("LogOut"),
+                LocalizationService.Get("Cancel"));
 
             if (!shouldLogOut)
             {
@@ -60,7 +69,25 @@ namespace Lopputoo
         private void UpdateCurrentUserText()
         {
             var username = Preferences.Get(CurrentUsernamePreferenceKey, string.Empty);
-            CurrentUserLabel.Text = string.IsNullOrWhiteSpace(username) ? "Not logged in" : $"User: {username}";
+            CurrentUserLabel.Text = string.IsNullOrWhiteSpace(username)
+                ? LocalizationService.Get("NotLoggedIn")
+                : LocalizationService.Format("UserFormat", username);
+        }
+
+        private void ApplyLocalization()
+        {
+            RegisterButton.Text = LocalizationService.Get("Register");
+            LoginButton.Text = LocalizationService.Get("Login");
+            GardenDefenderLabel.Text = LocalizationService.Get("GardenDefender");
+            PrototypeLabel.Text = LocalizationService.Get("Prototype");
+            PlayButton.Text = LocalizationService.Get("Play");
+            SettingsButton.Text = LocalizationService.Get("Settings");
+        }
+
+        private void OnLanguageChanged(object? sender, EventArgs e)
+        {
+            ApplyLocalization();
+            UpdateCurrentUserText();
         }
     }
 }

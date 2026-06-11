@@ -7,6 +7,7 @@ namespace Lopputoo
         public App()
         {
             InitializeComponent();
+            LocalizationService.ApplySavedLanguage();
             ThemeService.ApplySavedTheme();
         }
 
