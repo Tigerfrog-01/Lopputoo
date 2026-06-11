@@ -31,6 +31,7 @@
             Grid.Row="0"
             Spacing="8">
             <Label
+                x:Name="GameTitleLabel"
                 Text="Game"
                 FontSize="30"
                 FontAttributes="Bold"
@@ -54,6 +55,7 @@
                 </Image>
 
                 <Label
+                    x:Name="DragCactusLabel"
                     Text="Drag cactus"
                     FontSize="16"
                     TextColor="{AppThemeBinding Light=#24422B, Dark=#D9F2D2}"
@@ -65,6 +67,7 @@
                 ColumnSpacing="10"
                 HorizontalOptions="Fill">
                 <Label
+                    x:Name="BaseHealthLabel"
                     Grid.Column="0"
                     Text="Base health"
                     FontSize="14"
@@ -153,6 +156,7 @@
                         x:Name="Lane1ShotArea"
                         Grid.Column="1">
                         <Label
+                            x:Name="Lane1Label"
                             Text="Lane 1"
                             Style="{StaticResource LaneLabelStyle}"
                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
@@ -241,6 +245,7 @@
                         x:Name="Lane2ShotArea"
                         Grid.Column="1">
                         <Label
+                            x:Name="Lane2Label"
                             Text="Lane 2"
                             Style="{StaticResource LaneLabelStyle}"
                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
@@ -308,6 +313,7 @@
                         x:Name="Lane3ShotArea"
                         Grid.Column="1">
                         <Label
+                            x:Name="Lane3Label"
                             Text="Lane 3"
                             Style="{StaticResource LaneLabelStyle}"
                             AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
@@ -318,6 +324,7 @@
         </Grid>
 
         <Button
+            x:Name="BackButton"
             Grid.Row="2"
             Text="Back"
             Clicked="OnBackClicked"
