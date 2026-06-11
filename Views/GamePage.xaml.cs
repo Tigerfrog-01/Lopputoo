@@ -152,6 +152,8 @@ namespace Lopputoo.Views
 
         private async Task MoveFishFingerAsync()
         {
+            await Task.Delay(15000);
+
             while (isFishFingerMoving && !isGameOver)
             {
                 if (Lane1ShotArea.Width <= 0)
