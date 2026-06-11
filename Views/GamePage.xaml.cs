@@ -172,8 +172,15 @@ namespace Lopputoo.Views
 
                     if (GetFishFingerLeft() <= 0)
                     {
-                        DamageCactus(1, FishDamage);
-                        DamageBase(FishDamage);
+                        if (HasLivingCactus(1))
+                        {
+                            DamageCactus(1, FishDamage);
+                        }
+                        else
+                        {
+                            DamageBase(FishDamage);
+                        }
+
                         isFishFingerActive = false;
                     }
 
@@ -247,6 +254,11 @@ namespace Lopputoo.Views
             }
 
             RemoveCactus(laneNumber);
+        }
+
+        private bool HasLivingCactus(int laneNumber)
+        {
+            return cactusHealthByLane.TryGetValue(laneNumber, out var cactusHealth) && cactusHealth > 0;
         }
 
         private void UpdateCactusHealthBar(int laneNumber, double progress)
